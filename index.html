@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TahaMis Portfolio - Code & Create</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">tahamis.portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">home</a></li>
+                <li><a href="#projects">projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-prefix">const developer = {</div>
+                <h1>Full Stack Developer</h1>
+                <div class="hero-subtitle">name: "Taha Mis", skills: ["C#", "C++", "Python", "Flutter", "Html5", "Css", "JavaScript" ]</div>
+                <p class="hero-description">
+                    Kod yazmayı seven, problemi çözmeyi seven ve sürekli öğrenen bir geliştiriciyim. 
+                    Modern teknolojiler kullanarak etkili ve ölçeklenebilir çözümler üretiyorum.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">projects.explore()</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-prefix">// Projelerim</div>
+                <h2 class="section-title">Recent Work</h2>
+                <p class="section-description">
+                    Son zamanlarda üzerinde çalıştığım projeler ve açık kaynak katkılarım
+                </p>
+            </div>
+            
+            <div class="project-controls">
+                <div class="project-count mono">
+                    Projects: <span id="projectCount">0</span>
+                </div>
+            </div>
+            
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projeler burada görünecek -->
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

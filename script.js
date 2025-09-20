@@ -1,0 +1,197 @@
+// Sabit projeler listesi - buraya kendi projelerinizi ekleyebilirsiniz
+const projects = [
+    {
+        id: 1,
+        title: "Electron-PassVault-",
+        description: "Electron PassVault, kullanıcıların web siteleri için kullanıcı adı ve şifrelerini güvenli bir şekilde saklayabilecekleri masaüstü uygulamasıdır. AES-256-CBC şifreleme algoritması kullanarak verileri yerel olarak şifreli bir şekilde saklar..",
+        tags: ["JavaScript", "Electron.js", "React", "Node.js"],
+        demo: "",
+        github: "https://github.com/tah4mis/Electron-PassVault-"
+    },
+    {
+        id: 2,
+        title: "book-management-api",
+        description: "Modern ve kullanımı kolay bir RESTful API ile kitap koleksiyonunuzu yönetin. Node.js ve Express.js kullanılarak geliştirilmiştir.",
+        tags: ["JavaScript","Express.js", "Node.js", "CORS", "Helmet","Dotenv","Morgan"],
+        demo: "",
+        github: "https://github.com/tah4mis/book-management-api"
+    },
+    {
+        id: 3,
+        title: "binary-analyzer-cpp",
+        description: "Bu proje, binary dosyaları analiz etmek için geliştirilmiş gelişmiş bir C++ uygulamasıdır. Dosya türü tespiti, hex dump, string extraction, pattern arama ve detaylı analiz raporları gibi özellikler sunar.",
+        tags: ["C++", "CMake 3.10+ (opsiyonel)"],
+        demo: "",
+        github: "https://github.com"
+    },
+    {
+        id: 4,
+        title: "Kanban-Desktop",
+        description: "Modern ve responsive kişisel portföy sitesi. Dark theme, smooth animations ve mobile-first approach ile tasarlandı.",
+        tags: ["HTML5", "CSS3", "JavaScript","Electron.js"],
+        demo: "#",
+        github: "https://github.com/tah4mis/Kanban-Desktop"
+    },
+    {
+        id: 5,
+        title: "crypto-price-analyzer",
+        description: "Bu proje, kripto para piyasasındaki fiyatları analiz etmek ve makine öğrenimi ile gelecekteki fiyatları analiz etmek amacıyla geliştirilmiştir.",
+        tags: ["Python", "Pandas", "Matplotlib", "Scikit-learn", "NumPy"],
+        demo: "",
+        github: "https://github.com/tah4mis/crypto-price-analyzer"
+    },
+    {
+        id: 6,
+        title: "aracihale-app",
+        description: "Bu proje, araç ihale sistemini yönetmek için geliştirilmiş bir web uygulamasıdır. Sistem, araç alıcıları ve satıcıları için güvenli ve şeffaf bir ihale platformu sunmaktadır.",
+        tags: ["C#", ".NET Core", "ASP.NET Core MVC", "Entity Framework", "Entity Framework", "Swagger/OpenAPI", "JWT Authentication", "Unit of Work Pattern",
+            "Middleware yapılandırması: Exception Handling,Request Logging,CORS Policy..", "React.js", "Microsoft SQL Server"],
+        demo: "#",
+        github: "https://github.com/tah4mis/aracihale"
+    },
+    {
+        id: 7,
+        title: "BlogSite",
+        description: "Bu proje ASP.NET Core MVC kullanılarak geliştirilmiş bir blog sitesidir. Kullanıcılar makale yazabilir, düzenleyebilir ve kategorilere göre filtreleyebilir.",
+        tags: ["C#", "ASP.NET Core", "Entity Framework Core", "SQL Server", "Bootstrap 5", "Identity Framework",],
+        demo: "",
+        github: "https://github.com/tah4mis/BlogSite"
+    },
+    {
+        id: 8,
+        title: "SimpleDoctor",
+        description: "Bu proje, ASP.NET Core MVC kullanılarak geliştirilmiş bir doktor randevu sistemidir.",
+        tags: ["C#", "ASP.NET Core", "Entity Framework Core", "SQL Server", "Bootstrap 5", "Identity Framework", "jQuery"],
+        demo: "",
+        github: "https://github.com/tah4mis/SimpleDoctor"
+    },
+    {
+        id: 9,
+        title: "RotanaMobil",
+        description: "Rotana Mobil, Flutter ile geliştirilmiş kapsamlı bir seyahat ve konaklama yönetimi uygulamasıdır. Bu uygulama, seyahat ve konaklama hizmetlerinin çeşitli yönlerini yönetmek için kusursuz bir deneyim sunar.",
+        tags: ["Flutter - UI Framework", "Dart", "Firebase"],
+        demo: "",
+        github: "https://github.com/tah4mis/RotanaMobil"
+    },
+    {
+        id: 10,
+        title: "zenit_ring",
+        description: "NFC özellikli yüzük için Flutter tabanlı mobil uygulama.",
+        tags: ["Flutter - UI Framework", "Dart", "Firebase"],
+        demo: "",
+        github: "https://github.com/tah4mis/zenit_ring"
+    },
+    
+];
+
+// Matrix rain effect
+function initMatrix() {
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const letters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    
+    for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+    
+    function draw() {
+        ctx.fillStyle = 'rgba(10, 10, 15, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#00ff41';
+        ctx.font = fontSize + 'px JetBrains Mono';
+        
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    
+    setInterval(draw, 100);
+}
+
+// Projeleri render et
+function renderProjects() {
+    const grid = document.getElementById('projects-grid');
+    const countEl = document.getElementById('projectCount');
+    
+    grid.innerHTML = '';
+    countEl.textContent = projects.length;
+
+    projects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card';
+        projectCard.innerHTML = `
+            <div class="project-header">
+                <div class="project-dots">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+            </div>
+            <div class="project-body">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-description">${project.description}</p>
+                <div class="project-stack">
+                    ${project.tags.map(tag => `<span class="stack-item">${tag}</span>`).join('')}
+                </div>
+                <div class="project-links">
+                    ${project.demo && project.demo !== '#' ? `<a href="${project.demo}" class="project-link" target="_blank">Live Demo</a>` : ''}
+                    ${project.github ? `<a href="${project.github}" class="project-link" target="_blank">Source Code</a>` : ''}
+                </div>
+            </div>
+        `;
+        grid.appendChild(projectCard);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Matrix efektini başlat
+    initMatrix();
+    
+    // Projeleri render et
+    renderProjects();
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(10, 10, 15, 0.98)';
+        } else {
+            header.style.background = 'rgba(10, 10, 15, 0.95)';
+        }
+    });
+
+    // Responsive matrix canvas
+    window.addEventListener('resize', function() {
+        const canvas = document.getElementById('matrix');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+});
