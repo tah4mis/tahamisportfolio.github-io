@@ -129,14 +129,6 @@ const projects = [
         demo: "",
         github: "https://github.com/tah4mis/PwdGen"
     },
-    {
-        id: 17,
-        title: "crypto-price-analyzer",
-        description: "Teknik analiz ve makine öğrenimi kullanarak kripto para piyasası verilerini çıkaran ve fiyat analizi gerçekleştiren Python projesi",
-        tags: ["Python"],
-        demo: "",
-        github: "https://github.com/tah4mis/crypto-price-analyzer"
-    },
     
 ];
 
@@ -250,5 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
+
 
 });
