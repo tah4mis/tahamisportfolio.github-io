@@ -81,6 +81,62 @@ const projects = [
         demo: "",
         github: "https://github.com/tah4mis/zenit_ring"
     },
+    {
+        id: 11,
+        title: "office-project-management-app-demo",
+        description: "Modern ekiplerin iletişim ve iş takibini kolaylaştırmak için geliştirilmiş bir ofis yönetim uygulaması.",
+        tags: ["React 19", "TailwindCSS", "lucide-react → ikon seti", "React Scripts"],
+        demo: "",
+        github: "https://github.com/tah4mis/office-project-management-app-demo"
+    },
+    {
+        id: 12,
+        title: "create-project-cli",
+        description: "Hakkında TypeScript, Docker ve CI/CD ile React, Express ve tam yığın projeler oluşturmak için minimal CLI aracı",
+        tags: ["full-stack"],
+        demo: "",
+        github: "https://github.com/tah4mis/create-project-cli"
+    },
+    {
+        id: 13,
+        title: "gitpush-cli",
+        description: "GitHub'a kolay proje push etme CLI aracı - Node.js ile geliştirilmiş, tek komutla commit ve push yapabilen, branch yönetimi ve otomatik dosya oluşturma özellikli CLI tool",
+        tags: [" Node.js "],
+        demo: "",
+        github: "https://github.com/tah4mis/gitpush-cli"
+    },
+    {
+        id: 14,
+        title: "cryptodash-flow",
+        description: "Modern bir kripto para ve döviz kurları dashboard uygulaması. React, TypeScript, TailwindCSS ve Shadcn/UI kullanılarak geliştirilmiştir.",
+        tags: ["Node.js 18+ ve npm", "Electron", "TailwindCSS", "Vite", "React Router DOM"],
+        demo: "",
+        github: "https://github.com/tah4mis/cryptodash-flow"
+    },
+     {
+        id: 15,
+        title: "Port-Scanner-Tool",
+        description: "Port Scanner Tool, Python ile yazılmış gelişmiş bir TCP/UDP port tarayıcı ve servis tespit test ve eğitim aracıdır.",
+        tags: ["Python"],
+        demo: "",
+        github: "https://github.com/tah4mis/Port-Scanner-Tool"
+    },
+    {
+        id: 16,
+        title: "PwdGen",
+        description: "Bu proje, kullanıcıların kolayca güçlü şifreler oluşturmasını sağlayan basit bir Python GUI uygulamasıdır. Tkinter kullanılarak geliştirilmiştir.",
+        tags: ["Python"],
+        demo: "",
+        github: "https://github.com/tah4mis/PwdGen"
+    },
+    {
+        id: 17,
+        title: "crypto-price-analyzer",
+        description: "Teknik analiz ve makine öğrenimi kullanarak kripto para piyasası verilerini çıkaran ve fiyat analizi gerçekleştiren Python projesi",
+        tags: ["Python"],
+        demo: "",
+        github: "https://github.com/tah4mis/crypto-price-analyzer"
+    },
     
 ];
 
@@ -194,4 +250,5 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
+
 });
