@@ -137,7 +137,22 @@ const projects = [
         demo: "",
         github: "https://github.com/tah4mis/crypto-price-analyzer"
     },
-    
+    {
+        id: 18,
+        title: "Yanibasinda-Joint-Project",
+        description: "Python ile geliştirilmiş ortak proje",
+        tags: ["Python"],
+        demo: "",
+        github: "https://github.com/tah4mis/Yanibasinda-Joint-Project"
+    },
+    {
+        id: 19,
+        title: "3D-Pursuit-Simulation",
+        description: "3D ortamda asker küresinin düşman küresini dinamik olarak takip ettiği gerçek zamanlı bir takip simülasyonu",
+        tags: ["Python", "3D Graphics"],
+        demo: "",
+        github: "https://github.com/tah4mis/3D-Pursuit-Simulation-"
+    }
 ];
 
 // Matrix rain effect
@@ -189,13 +204,15 @@ function renderProjects() {
     projects.forEach(project => {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
+        projectCard.draggable = true;
         projectCard.innerHTML = `
-            <div class="project-header">
+            <div class="project-header drag-handle">
                 <div class="project-dots">
                     <div class="terminal-dot dot-red"></div>
                     <div class="terminal-dot dot-yellow"></div>
                     <div class="terminal-dot dot-green"></div>
                 </div>
+                <div class="drag-icon">⋮⋮</div>
             </div>
             <div class="project-body">
                 <h3 class="project-title">${project.title}</h3>
@@ -210,6 +227,63 @@ function renderProjects() {
             </div>
         `;
         grid.appendChild(projectCard);
+    });
+
+    // Drag and drop functionality
+    initDragAndDrop();
+}
+
+// Drag and Drop işlevselliği
+function initDragAndDrop() {
+    const cards = document.querySelectorAll('.project-card');
+    let draggedElement = null;
+
+    cards.forEach(card => {
+        card.addEventListener('dragstart', function(e) {
+            draggedElement = this;
+            this.style.opacity = '0.5';
+            e.dataTransfer.effectAllowed = 'move';
+        });
+
+        card.addEventListener('dragend', function(e) {
+            this.style.opacity = '1';
+            cards.forEach(c => c.classList.remove('drag-over'));
+        });
+
+        card.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            if (this !== draggedElement) {
+                this.classList.add('drag-over');
+            }
+            return false;
+        });
+
+        card.addEventListener('dragleave', function(e) {
+            this.classList.remove('drag-over');
+        });
+
+        card.addEventListener('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            if (draggedElement !== this) {
+                const grid = document.getElementById('projects-grid');
+                const allCards = [...grid.children];
+                const draggedIndex = allCards.indexOf(draggedElement);
+                const targetIndex = allCards.indexOf(this);
+                
+                if (draggedIndex < targetIndex) {
+                    this.parentNode.insertBefore(draggedElement, this.nextSibling);
+                } else {
+                    this.parentNode.insertBefore(draggedElement, this);
+                }
+            }
+            
+            this.classList.remove('drag-over');
+            return false;
+        });
     });
 }
 
