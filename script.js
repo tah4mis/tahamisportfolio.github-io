@@ -1,3 +1,7 @@
+// Console mesajı
+console.log("%c🚨 DUR BAKALIM İHTİYAR! 🚨", "color: red; font-size: 24px; font-weight: bold;");
+console.log("%cKodları incelediğini görüyorum. Eğer bir açık bulursan tahamis2016@gmail.com adresinden bana ulaşabilirsin.", "color: red; font-size: 16px; font-weight: bold;");
+
 // Sabit projeler listesi - buraya kendi projelerinizi ekleyebilirsiniz
 const projects = [
     {
