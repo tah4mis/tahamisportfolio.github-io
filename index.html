@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TahaMis Portfolio - Code & Create</title>
+    <title>TahaMis - Code & Designer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,6 +16,7 @@
             <ul class="nav-links">
                 <li><a href="#home">home</a></li>
                 <li><a href="#projects">projects</a></li>
+                <li><a href="#design">design</a></li>
                 <li><a href="#cv">cv</a></li>
             </ul>
         </nav>
@@ -25,10 +26,12 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-prefix">const developer = {</div>
-                <h1>Full Stack Developer</h1>
+                <h1>Full Stack Developer & Designer</h1>
                 <div class="hero-code-block">
                     <div class="code-line">name: "Taha Mis",</div>
+                    <div class="code-line">email: "contact@tahamis.com.tr",</div>
                     <div class="code-line">skills: ["C#", "C++", "Python", "Flutter", "Html5", "Css", "JavaScript", "React Native", "Android", "Kotlin", "Dart"],</div>
+                    <div class="code-line">design: ["Premiere Pro", "Photoshop", "Illustrator"],</div>
                     <div class="code-line">passion: "Code & Create",</div>
                     <div class="code-line">status: true <span class="code-comment">// Always Learning...</span></div>
                 </div>
@@ -39,7 +42,7 @@
                 </p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">projects.explore()</a>
-                    <a href="mailto:tahamis2016@gmail.com" class="btn btn-secondary">contact.me()</a>
+                    <a href="mailto:contact@tahamis.com.tr" class="btn btn-secondary">contact.me()</a>
                 </div>
             </div>
         </div>
@@ -67,6 +70,91 @@
         </div>
     </section>
 
+    <section class="design-portfolio" id="design">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-prefix">// Tasarım Portföyü</div>
+                <h2 class="section-title">Graphic & Design Portfolio</h2>
+                <p class="section-description">
+                    Grafik tasarım ve görsel çalışmalarım
+                </p>
+            </div>
+            
+            <div class="design-grid">
+                <div class="design-item" onclick="openModal('1.jpg')">
+                    <img src="1.jpg" alt="Design 1" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 1</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('2.jpg')">
+                    <img src="2.jpg" alt="Design 2" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 2</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('3.jpg')">
+                    <img src="3.jpg" alt="Design 3" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 3</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('4.jpg')">
+                    <img src="4.jpg" alt="Design 4" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 4</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('5.jpg')">
+                    <img src="5.jpg" alt="Design 5" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 5</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('6.jpg')">
+                    <img src="6.jpg" alt="Design 6" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 6</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('7.jpg')">
+                    <img src="7.jpg" alt="Design 7" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 7</h3>
+                        <p>Açıklama</p>
+                    </div>
+                </div>
+                
+                <div class="design-item" onclick="openModal('8.jpg')">
+                    <img src="8.jpg" alt="Design 8" loading="lazy">
+                    <div class="design-overlay">
+                        <h3>Design Project 8</h3>
+                        <p>Açıklama</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Full Size Image">
+        </div>
+    </div>
+
     <section class="cv-section" id="cv">
         <div class="container">
             <div class="section-header">
@@ -83,14 +171,32 @@
                         <span>⬇</span> CV İndir
                     </a>
                 </div>
-                <div class="cv-viewer">
-                    <object data="cvTahaMis.pdf" type="application/pdf" width="100%" height="100%">
-                        <iframe src="cvTahaMis.pdf" width="100%" height="100%">
-                            <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
-                                PDF görüntülenemiyor. <a href="cvTahaMis.pdf" target="_blank" style="color: var(--accent-green);">Buraya tıklayarak açın</a>
-                            </p>
-                        </iframe>
-                    </object>
+                <div class="cv-grid">
+                    <div class="cv-item">
+                        <h3 class="cv-title">Türkçe CV</h3>
+                        <div class="cv-viewer">
+                            <object data="cvTahaMis.pdf" type="application/pdf" width="100%" height="100%">
+                                <iframe src="cvTahaMis.pdf" width="100%" height="100%">
+                                    <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                                        PDF görüntülenemiyor. <a href="cvTahaMis.pdf" target="_blank" style="color: var(--accent-green);">Buraya tıklayarak açın</a>
+                                    </p>
+                                </iframe>
+                            </object>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-item">
+                        <h3 class="cv-title">Europass CV</h3>
+                        <div class="cv-viewer">
+                            <object data="TahaMis_Europass CV.pdf" type="application/pdf" width="100%" height="100%">
+                                <iframe src="TahaMis_Europass CV.pdf" width="100%" height="100%">
+                                    <p style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                                        PDF görüntülenemiyor. <a href="TahaMis_Europass CV.pdf" target="_blank" style="color: var(--accent-green);">Buraya tıklayarak açın</a>
+                                    </p>
+                                </iframe>
+                            </object>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
+/* aspect-ratio: 1080 / 
+*/
 :root {
     --bg-primary: #0a0a0f;
     --bg-secondary: #1a1a2e;
@@ -419,6 +420,132 @@ body {
     }
 }
 
+/* Design Portfolio Section */
+.design-portfolio {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.design-item {
+    position: relative;
+    width: 250px;
+    height: 312px;
+    aspect-ratio: 1080 / 1350;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.design-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.design-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.design-item:hover img {
+    transform: scale(1.1);
+}
+
+.design-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1.5rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.design-item:hover .design-overlay {
+    transform: translateY(0);
+}
+
+.design-overlay h3 {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.design-overlay p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Image Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--accent-green);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 /* CV Section */
 .cv-section {
     padding: 100px 0;
@@ -439,6 +566,25 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.cv-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-title {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-green);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .cv-viewer {
@@ -624,6 +770,23 @@ body {
 
     .cv-controls {
         justify-content: center;
+    }
+
+    .cv-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .design-item {
+        width: 100%;
+        height: auto;
+        max-width: 250px;
+        margin: 0 auto;
     }
 
     .contact-content {

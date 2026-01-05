@@ -1,6 +1,6 @@
 // Console mesajı
 console.log("%c🚨 DUR BAKALIM İHTİYAR! 🚨", "color: red; font-size: 24px; font-weight: bold;");
-console.log("%cKodları incelediğini görüyorum. Eğer bir açık bulursan tahamis2016@gmail.com adresinden bana ulaşabilirsin.", "color: red; font-size: 16px; font-weight: bold;");
+console.log("%cKodları incelediğini görüyorum. Eğer bir açık bulursan contact@tahamis.com.tr adresinden bana ulaşabilirsin.", "color: red; font-size: 16px; font-weight: bold;");
 
 // Sabit projeler listesi - buraya kendi projelerinizi ekleyebilirsiniz
 const projects = [
@@ -331,4 +331,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+// Image Modal Functions
+function openModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+    
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    
+    // Modal dışına tıklayınca kapatma
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+}
 
